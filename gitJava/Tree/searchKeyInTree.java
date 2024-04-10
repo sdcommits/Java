@@ -11,6 +11,8 @@ public class searchKeyInTree {
             this.right = null;
         }
     }
+
+    
     public static Node insert(Node root,int val){
         if(root == null){
            root = new Node(val);
