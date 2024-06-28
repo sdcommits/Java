@@ -1,11 +1,9 @@
 package Graph;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
+// Tis is for both attached and non attatched graph
+import java.util.*;
 
-public class dfsCode {
-
+public class mainBfs {
     static class Edge{
         int src;
         int dest;
@@ -44,10 +42,10 @@ public class dfsCode {
         graph[4].add(new Edge(6, 5));
     }
 
-    public static void  bfs(ArrayList<Edge> graph[], int V){
+    public static void  bfs(ArrayList<Edge> graph[], int V, boolean vis[], int start){
         Queue<Integer> q = new LinkedList<>();
-        boolean vis[] = new boolean[V];
-        q.add(0);
+        
+        q.add(start);
         while(!q.isEmpty()){
             int curr = q.remove();
             if(vis[curr] == false){
@@ -59,36 +57,24 @@ public class dfsCode {
                 q.add(e.dest);
             }
         }
-    }
 
-    public static void dfs(ArrayList<Edge> graph[] , int curr, boolean[] vis){
-        System.out.print(curr+ " ");
-        vis[curr] = true;
 
-        for(int i =0;i<graph[curr].size();i++){
-            Edge e = graph[curr].get(i);
-            if(vis[e.dest] == false){
-                dfs(graph, e.dest, vis );
-            }
-        }
     }
 
     public static void main(String args[]){
         int V = 7;
 
         ArrayList<Edge> graph[] = new ArrayList[V];
-        boolean vis[] = new boolean[V];
 
-        
         createGraph(graph);
-        // dfs(graph,0,vis);
-        for(int i = 0;i<V;i++){
+        boolean vis[] = new boolean[V];
+        for(int i =0;i<V;i++){
             if(vis[i] == false){
-                dfs(graph, i, vis);
+                bfs(graph,V,vis, i);
             }
         }
 
     }
     
-    
 }
+

@@ -17,6 +17,5 @@ public class addingKeyIfAbsent {
         map.putIfAbsent("sheenam", 30);
         map.putIfAbsent("Nav", 50);
         System.out.println(map);
-    }
-    
+    }  
 }
