@@ -28,8 +28,6 @@ public class distanceBetweenNodes {
     }
 
     public static int findingDistance(Node root, int n1, int n2){
-
-
         if(root == null) return 0;
         
         int left = findingDistance(root.left, n1, n2);
